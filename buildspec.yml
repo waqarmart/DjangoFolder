@@ -1,5 +1,5 @@
 version: 0.2
-
+ 
 phases:
   install:
     runtime-versions:
@@ -7,14 +7,11 @@ phases:
     commands:
       - pip install --upgrade pip
       - pip install -r requirements.txt
-
-  build:
-    commands:
-      - python manage.py collectstatic --noinput
-      - mkdir -p package
-      - find . -mindepth 1 -maxdepth 1 ! -name 'package' -exec cp -r {} package/ \;
-
+ 
+# no manual zip in ‘build’ phase at all
 artifacts:
+  # point to your project root
+  base-directory: . 
   files:
-    - '**/*'
-  base-directory: package
+    - '**/*'      # include everything
+  discard-paths: no  # preserve subfolders
