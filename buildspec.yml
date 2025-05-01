@@ -1,5 +1,5 @@
 version: 0.2
- 
+
 phases:
   install:
     runtime-versions:
@@ -7,11 +7,11 @@ phases:
     commands:
       - pip install --upgrade pip
       - pip install -r requirements.txt
- 
+
 # no manual zip in ‘build’ phase at all
 artifacts:
   # point to your project root
-  base-directory: . 
+  base-directory: .  
   files:
     - '**/*'      # include everything
   discard-paths: no  # preserve subfolders
